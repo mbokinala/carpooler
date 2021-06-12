@@ -8,7 +8,7 @@ const pool = mysql.createPool({
 	database: 'carpooler'
 })
 
-const query = (queryString): Promise<{results: any, fields: any}> => {
+const query = (queryString): Promise<{results: any, fields: mysql.FieldInfo[]}> => {
 	return new Promise((resolve, reject) => {
 		pool.query(queryString, function(error, results, fields) {
 			if (error) return reject(error);
