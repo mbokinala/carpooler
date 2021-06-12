@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@chakra-ui/react": "^1.6.3",
+    "@auth0/nextjs-auth0": "^1.4.0",
     "@types/mysql": "^2.15.18",
     "mysql": "^2.18.1",
     "next": "10.2.3",
