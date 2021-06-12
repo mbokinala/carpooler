@@ -8,5 +8,12 @@ const pool = mysql.createPool({
 	database: 'carpooler'
 })
 
-const query = util.promisify(pool.query).bind(pool); // convert callback to promise
+const query = (queryString) => {
+	return new Promise((resolve, reject) => {
+		pool.query(queryString, function(error, results, fields) {
+			if (error) return reject(error);
+			resolve({results, fields});
+		})
+	});
+}
 export default query;
