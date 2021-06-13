@@ -26,7 +26,7 @@ async function handler(req, res) {
       `SELECT * FROM starting_locations WHERE street_address = "${starting_street_address}"`
     );
     const targetLocationCheck = await query(
-      `SELECT * FROM target_locations WHERE street_address = "${starting_street_address}"`
+      `SELECT * FROM target_locations WHERE street_address = "${target_street_address}"`
     );
 
     if (startingLocationCheck.results.length === 0) {
