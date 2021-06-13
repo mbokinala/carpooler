@@ -23,7 +23,6 @@ function AddCarpool() {
   const state = useRef();
   const postalCode = useRef();
   function handleSubmit(e) {
-	  console.log(location,address,city,state,postalCode); 
     e.preventDefault();
   }
   let days = [
