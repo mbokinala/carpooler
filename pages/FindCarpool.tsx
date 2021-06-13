@@ -63,12 +63,7 @@ function FindCarpool() {
             <Head>
                 <title>Find a Carpool</title>
             </Head>
-<<<<<<< HEAD
-			<Navbar />
-
-=======
             <Navbar />
->>>>>>> d3f1dc663dd81eef1f0a97affc1d8c6d847efaaa
             <Flex
                 height="100vh"
                 direction="column"
