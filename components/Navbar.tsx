@@ -19,9 +19,8 @@ import {
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
 
-const Links = ["Sign Up", "Find Carpool", "Add Carpool", "Profile"];
 
-const NavLink = ({ children }: { children: ReactNode }) => (
+const NavLink = ({ children, link }: { children: ReactNode, link: string }) => (
   <Link
     px={2}
     py={1}
@@ -30,7 +29,7 @@ const NavLink = ({ children }: { children: ReactNode }) => (
       textDecoration: "none",
       bg: useColorModeValue("gray.200", "gray.700"),
     }}
-    href={"#"}
+    href={link}
   >
     {children}
   </Link>
@@ -38,7 +37,24 @@ const NavLink = ({ children }: { children: ReactNode }) => (
 
 export default function Simple() {
   const { user, error, isLoading } = useUser();
-
+  let links = [
+      {
+          name: "Sign Up",
+          link: "/signup"
+      }, 
+      {
+          name: "Find Carpool",
+          link: "/FindCarpool"
+      },
+      {
+        name: "Add Carpool",
+        link: "/AddCarpool"
+    },
+    {
+        name: "Profile",
+        link: "/profile"
+    }
+  ]
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>{error.message}</div>;
 
@@ -52,8 +68,8 @@ export default function Simple() {
               spacing={4}
               display={{ base: "none", md: "flex" }}
             >
-              {Links.map((link) => (
-                <NavLink key={link}>{link}</NavLink>
+              {links.map((link) => (
+                <NavLink key={link.name} link={link.link}>{link.name}</NavLink>
               ))}
             </HStack>
           </HStack>
