@@ -1,4 +1,3 @@
-console.log('hello!');
 let autocomplete;
 let address1Field;
 let address2Field;
