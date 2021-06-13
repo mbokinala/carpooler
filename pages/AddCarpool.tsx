@@ -29,10 +29,10 @@ function AddCarpool() {
 						<Stack direction="row" spacing={5} border="2px" borderColor="gray.400" alignItems="center" justifyContent="center" rounded={6} padding="10px">
 							<Text fontWeight="bold">Monday</Text>
 							<Text>Start:</Text>
-							<Input type="time" onChange={(event) => {console.log(event.target.value)}}></Input>
+							<Input type="time" onChange={(event) => {console.log(event.target.value)}} step={900}></Input>
 							
 							<Text>End:</Text>
-							<Input type="time" onChange={(event) => {console.log(event.target.value)}}></Input>
+							<Input type="time" onChange={(event) => {console.log(event.target.value)}} step={900}></Input>
 
 							<Button>X</Button>
 						</Stack>
