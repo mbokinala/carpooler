@@ -17,7 +17,6 @@ import {
   Stack,
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
-import Navbar from "../components/Navbar";
 
 export async function getServerSideProps(context) {
 
@@ -30,5 +29,5 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home() {
-  return <Navbar />;
+  return <></>;
 }
