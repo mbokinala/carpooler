@@ -3,7 +3,6 @@ import { Button, ChakraProvider, Checkbox, Flex, Heading, Input, Select, Stack, 
 import Head from 'next/head';
 import React from 'react';
 import { toSeconds, toReadableTime } from 'seconds-since-midnight';
-// import {}
 
 function AddCarpool() {
 	return (
