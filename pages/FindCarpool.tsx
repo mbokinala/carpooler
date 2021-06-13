@@ -10,6 +10,7 @@ import {
     Stack,
     Text,
 } from "@chakra-ui/react";
+import Navbar from "../components/Navbar";
 import axios from "axios";
 import Head from "next/head";
 import React, { useRef, useState } from "react";
@@ -29,7 +30,7 @@ function FindCarpool() {
             <Head>
                 <title>Find a Carpool</title>
             </Head>
-
+        <Navbar /> 
             <Flex
                 height="100vh"
                 direction="column"

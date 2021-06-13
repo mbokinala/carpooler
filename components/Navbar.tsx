@@ -5,16 +5,7 @@ import {
   Avatar,
   HStack,
   Link,
-  IconButton,
-  Button,
-  Menu,
-  MenuButton,
-  MenuList,
-  MenuItem,
-  MenuDivider,
-  useDisclosure,
-  useColorModeValue,
-  Stack,
+  useColorModeValue
 } from "@chakra-ui/react";
 import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
 import { useUser } from "@auth0/nextjs-auth0";
@@ -40,7 +31,7 @@ export default function Simple() {
   let links = [
       {
           name: "Sign Up",
-          link: "/signup"
+          link: "/api/auth/login"
       }, 
       {
           name: "Find Carpool",
@@ -75,21 +66,6 @@ export default function Simple() {
           </HStack>
           <Flex alignItems={"center"}>
             <Avatar size={"sm"} src={user.picture} />
-            {/* <Menu>
-              <MenuButton
-                as={Button}
-                rounded={'full'}
-                variant={'link'}
-                cursor={'pointer'}>
-                
-              </MenuButton>
-              <MenuList>
-                <MenuItem>Link 1</MenuItem>
-                <MenuItem>Link 2</MenuItem>
-                <MenuDivider />
-                <MenuItem>Link 3</MenuItem>
-              </MenuList>
-            </Menu> */}
           </Flex>
         </Flex>
       </Box>
