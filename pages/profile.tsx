@@ -14,11 +14,11 @@ function Profile() {
 
 	async function handleSubmit(event) {
 		event.preventDefault();
-		alert(addressRef.current.value);
-		axios.post("/api/user/preferredLocation", {
+		await axios.post("/api/user/preferredLocation", {
 			userEmail: user.email,
 			preferredAddress: addressRef.current.value
 		});
+		alert('Saved!');
 
 		addressRef.current.value = "";
 	}
