@@ -13,7 +13,8 @@ async function handler(req, res) {
       target_state,
       target_zip,
     } = req.body;
-
+    
+    const timings: [{day: string, times: {start: number, end: number}}] = req.body.timings;
     let startingID;
     let targetID;
 
@@ -35,7 +36,7 @@ async function handler(req, res) {
 
     if (targetLocationCheck.results.length === 0) {
       targetID = uuidv4();
-      console.log(target_street_address); 
+      console.log(target_street_address);
       await query(
         `INSERT INTO target_locations (target_location_id, name, street_address, city, state, zip) VALUES("${targetID}","${target_street_address}", "${target_city}", "${target_state}", "${target_zip}")`
       );
@@ -43,14 +44,21 @@ async function handler(req, res) {
       targetID = targetLocationCheck.results[0].target_location_id;
     }
 
+    let carpoolId = uuidv4();
+
     await query(
       `INSERT INTO carpools (carpool_id, owner_uid, starting_location_id, target_location_id) VALUES (
-		  "${uuidv4()}",
+		  "${carpoolId}",
 		  "${owner_uid}",
 		  "${startingID}",
 		  "${targetID}"
 		)`
     );
+
+    for (const timing of timings) {
+      await query(`INSERT INTO timings (timing_id, carpool_id, day, start_time, end_time) VALUES ("${uuidv4()}", "${carpoolId}", "${timing.day}", "${timing.times.start}", "${timing.times.end}")`)
+    }
+        
     return res.status(201).send({ status: "success" });
     //     if (
     //       startingLocationCheck.results.length === 0 &&
