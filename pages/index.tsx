@@ -1,10 +1,34 @@
+import { ReactNode } from "react";
+import {
+  Box,
+  Flex,
+  Avatar,
+  HStack,
+  Link,
+  IconButton,
+  Button,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
+  useDisclosure,
+  useColorModeValue,
+  Stack,
+} from "@chakra-ui/react";
+import { HamburgerIcon, CloseIcon } from "@chakra-ui/icons";
+import Navbar from "../components/Navbar";
+
+export async function getServerSideProps(context) {
+
+    return {
+      redirect: {
+        destination: '/FindCarpool',
+        permanent: true,
+      },
+    }
+}
+
 export default function Home() {
-  return (
-    <>
-      <p>This is carpooler</p>
-      <a href="/profile">Profile</a> <br></br>
-      <a href="/api/auth/login">Login</a> <br></br>
-      <a href="/api/auth/logout">Logout</a>
-    </>
-  )
+  return <Navbar />;
 }
