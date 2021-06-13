@@ -40,7 +40,7 @@ function FindCarpool() {
                 <Stack direction="row" mb={5} justifyContent="center">
                     <form onSubmit={handleSubmit}>
                         <Input ref={searchRef} width="60vw" placeholder="search for a place" border="2px" borderColor="gray.400" mr={2}></Input>
-                        <Button type="submit" colorScheme="teal">Search</Button>
+                        <Button type="submit" colorScheme="orange">Search</Button>
                     </form>
                 </Stack>
                 <Stack width="65vw" direction="column" spacing={2}>

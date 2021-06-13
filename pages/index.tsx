@@ -34,18 +34,28 @@ import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 //   </Link>
 // );
 
+export async function getServerSideProps(context) {
+
+    return {
+      redirect: {
+        destination: '/FindCarpool',
+        permanent: true,
+      },
+    }
+}
+
 export default function Home() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   return (
     <Stack direction="column" spacing={4} align="center" mt="50%">
-      <Button colorScheme="teal" variant="solid">
+      <Button colorScheme="orange" variant="solid">
         Find Carpools
       </Button>
-      <Button colorScheme="teal" variant="solid">
+      <Button colorScheme="orange" variant="solid">
         Add Carpool
       </Button>
-      <Button colorScheme="teal" variant="solid" width="20vh">
+      <Button colorScheme="orange" variant="solid" width="20vh">
         Profile
       </Button>
      
