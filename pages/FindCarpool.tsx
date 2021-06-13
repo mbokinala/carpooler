@@ -38,12 +38,16 @@ function FindCarpool() {
         // setCarpools(results.data);
         let tempCarpools = [];
         for (const carpool of results.data) {
-            const addressParts = carpool.targetLocation;
-            const targetAddress = addressParts.street_address + ", " + addressParts.city + ", " + addressParts.state + " " + addressParts.zip;
-            console.log("target address is " + targetAddress);
-            const distanceResult = (await axios.get(encodeURI(`/api/calculateDistance?address1=${userPreferredAddress}&address2=${targetAddress}`)));
+            let distance = "";
+            if (userPreferredAddress == "") {
+                continue;
+            }
+            const addressParts = carpool.startingLocation;
+            const startingAddress = addressParts.street_address + ", " + addressParts.city + ", " + addressParts.state + " " + addressParts.zip;
+            console.log("starting address is " + startingAddress);
+            const distanceResult = (await axios.get(encodeURI(`/api/calculateDistance?address1=${userPreferredAddress}&address2=${startingAddress}`)));
             console.log(distanceResult);
-            let distance = distanceResult.data.data;
+            distance = distanceResult.data.data;
             let temp = carpool;
             temp.distance = distance;
             console.log('distance is ' + distance);

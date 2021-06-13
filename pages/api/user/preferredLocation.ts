@@ -25,7 +25,12 @@ export default async function handler(req, res) {
 
         const user_uid = (await query(`SELECT * FROM users WHERE email = "${email}"`)).results[0].uid;
 
-        const preferredAddress = (await query(`SELECT * FROM preferred_locations WHERE user_uid="${user_uid}"`)).results[0].full_address;
-        return res.status(200).json({preferredAddress});
+        const preferredAddress = (await query(`SELECT * FROM preferred_locations WHERE user_uid="${user_uid}"`))
+        if (preferredAddress.results.length > 0) {
+            return res.status(200).json({preferredAddress: preferredAddress.results[0].full_address});
+        } else {
+            return res.status(200).json({preferredAddress: ""})
+        }
+        
     }
 }
