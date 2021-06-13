@@ -8,6 +8,7 @@ async function handler(req, res) {
       starting_city,
       starting_state,
       starting_zip,
+      target_name,
       target_street_address,
       target_city,
       target_state,
@@ -41,7 +42,7 @@ async function handler(req, res) {
       targetID = uuidv4();
       console.log(target_street_address);
       await query(
-        `INSERT INTO target_locations (target_location_id, name, street_address, city, state, zip) VALUES("${targetID}","${target_street_address}", "${target_city}", "${target_state}", "${target_zip}")`
+        `INSERT INTO target_locations (target_location_id, name, street_address, city, state, zip) VALUES("${targetID}", "${target_name}", "${target_street_address}", "${target_city}", "${target_state}", "${target_zip}")`
       );
     } else {
       targetID = targetLocationCheck.results[0].target_location_id;
@@ -59,6 +60,7 @@ async function handler(req, res) {
     );
 
     for (const timing of timings) {
+      console.log(timing.day); 
       await query(`INSERT INTO timings (timing_id, carpool_id, day, start_time, end_time) VALUES ("${uuidv4()}", "${carpoolId}", "${timing.day}", "${timing.times.start}", "${timing.times.end}")`)
     }
 
