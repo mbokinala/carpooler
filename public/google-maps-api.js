@@ -5,7 +5,7 @@ let address2Field;
 let postalField;
 
 function initAutocomplete() {
-  address1Field = document.querySelector("#ship-address");
+  address1Field = document.querySelector("#location-name");
   address2Field = document.querySelector("#address2");
   postalField = document.querySelector("#postcode");
   // Create the autocomplete object, restricting the search predictions to
@@ -63,7 +63,7 @@ function fillInAddress() {
         break;
       }
       case "country":
-        document.querySelector("#country").value = component.long_name;
+        // document.querySelector("#country").value = component.long_name;
         break;
     }
   }
