@@ -38,7 +38,6 @@ function AddCarpool() {
 
   async function handleSubmit(e) {
     e.preventDefault();
-	console.log(day); 
     await fetch("/api/carpool", {
       method: "POST",
       headers: {
