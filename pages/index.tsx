@@ -29,5 +29,5 @@ export async function getServerSideProps(context) {
 }
 
 export default function Home() {
-  return <Navbar />;
+  return <></>;
 }
