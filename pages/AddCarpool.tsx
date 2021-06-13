@@ -12,7 +12,7 @@ import {
 } from "@chakra-ui/react";
 import Head from "next/head";
 import React, { useRef, useState } from "react";
-import Navbar from "../components/Navbar"; 
+import Navbar from "../components/Navbar";
 
 function AddCarpool() {
 	const starting_address = useRef(null);
@@ -79,10 +79,10 @@ function AddCarpool() {
 		<ChakraProvider>
 			<Head>
 				<title>Add Carpool</title>
-				<script
+				{/* <script
 					defer
-					src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLr5qel5Lbjw7IfPaIX2ORcn4Qn_7_3mA&libraries=places"
-				/>
+					src="/google-maps-loader.js"
+				/> */}
 				{/* <script  type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places‌​&sensor=false" /> */}
 				<script defer src="/google-maps-api.js" />
 			</Head>

@@ -28,14 +28,15 @@ function Profile() {
 			<>
 				<Head>
 					<title>Profile</title>
-					<script
+					{/* <script
 						defer
 						src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBLr5qel5Lbjw7IfPaIX2ORcn4Qn_7_3mA&libraries=places"
-					/>
+					/> */}
 					{/* <script  type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places‌​&sensor=false" /> */}
 					<script defer src="/google-maps-api-profile.js" />
 				</Head>
 				<ChakraProvider>
+					<Navbar />
 
 					<Flex
 						height="100vh"
@@ -43,7 +44,7 @@ function Profile() {
 						alignItems="center"
 						// justifyContent="center"
 						background="gray.200">
-						{/* <Navbar /> */}
+
 						<Heading mt={10} mb={2}>{user.name}</Heading>
 
 

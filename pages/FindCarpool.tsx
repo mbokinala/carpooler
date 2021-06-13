@@ -62,6 +62,7 @@ function FindCarpool() {
             <Head>
                 <title>Find a Carpool</title>
             </Head>
+			<Navbar />
 
             <Flex
                 height="100vh"
