@@ -15,6 +15,7 @@ import Head from "next/head";
 import { tmpdir } from "os";
 import React, { useEffect, useRef, useState } from "react";
 import CarpoolCard from "../components/CarpoolCard";
+import Navbar from "../components/Navbar";
 
 function FindCarpool() {
     const { user, error, isLoading } = useUser();
@@ -62,7 +63,7 @@ function FindCarpool() {
             <Head>
                 <title>Find a Carpool</title>
             </Head>
-
+            <Navbar />
             <Flex
                 height="100vh"
                 direction="column"
